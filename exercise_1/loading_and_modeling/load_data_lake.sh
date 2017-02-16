@@ -33,9 +33,19 @@ tail -n +2 survey_responses_orig.csv > survey_responses.csv
 
 #create hdfs directory
 hdfs dfs -mkdir /user/w205/hospital_compare
+hdfs dfs -mkdir /user/w205/hospital_compare/effective_care
+hdfs dfs -mkdir /user/w205/hospital_compare/hospitals
+hdfs dfs -mkdir /user/w205/hospital_compare/readmissions
+hdfs dfs -mkdir /user/w205/hospital_compare/measures
+hdfs dfs -mkdir /user/w205/hospital_compare/survey_responses
 
 #copy the files to hdfs
-hdfs dfs -put effective_care.csv hospitals.csv readmissions.csv measures.csv survey_responses.csv /user/w205/hospital_compare
+hdfs dfs -put effective_care.csv /user/w205/hospital_compare/effective_care
+hdfs dfs -put hospitals.csv /user/w205/hospital_compare/hospitals
+hdfs dfs -put readmissions.csv /user/w205/hospital_compare/readmissions
+hdfs dfs -put measures.csv /user/w205/hospital_compare/measures
+hdfs dfs -put survey_responses.csv /user/w205/hospital_compare/survey_responses
+
 hdfs dfs -ls /user/w205/hospital_compare/
 
 # change directory back to the original
