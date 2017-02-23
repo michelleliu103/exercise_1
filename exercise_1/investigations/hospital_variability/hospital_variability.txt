@@ -1,0 +1,16 @@
+Which procedures have the greatest variability between hospitals?
+
+To answer this question, I created a table that has all the procedure and its variance from the effective care table I made in Question 1. Then the select query is straight forward, the ten biggest variance, inner join with the measures table to find the measure name. 
+ED_1b	8599.70358133754	Median Time from ED Arrival to ED Departure for Admitted ED Patients
+ED_2b	4361.047812115433	Admit Decision Time to ED Departure Time for Admitted Patients
+OP_18b	1499.537113292858	Median Time from ED Arrival to ED Departure for Discharged ED Patients
+OP_31	950.3274999999998	Percentage of patients aged 18 years and older who had cataract surgery and had improvement in visual function achieved within 90 days following the cataract surgery
+OP_3b	873.2682926829267	Median Time to Transfer to Another Facility for Acute Coronary Intervention- Reporting Rate
+OP_29	489.4729895302337	Appropriate Follow-Up Interval for Normal Colonoscopy in Average Risk Patients
+OP_23	355.19550509203265	Head CT or MRI Scan Results for Acute Ischemic Stroke or Hemorrhagic Stroke Patients who Received Head CT or MRI Scan Interpretation Within 45 minutes of ED Arrival
+OP_30	339.10791613610525	Colonoscopy Interval for Patients with a History of Adenomatous Polyps - Avoidance of Inappropriate Use
+OP_21	309.3390705505297	Median Time to Pain Management for Long Bone Fracture
+OP_20	283.3228469376712	Median Time from ED Arrival to Provider Contact for ED patients
+
+From this output, the top ten procedures with the greatest variability between hospitals are: "Median Time from ED Arrival to ED Departure for Admitted ED Patients", "Admit Decision Time to ED Departure Time for Admitted Patients", "Median Time from ED Arrival to ED Departure for Discharged ED Patients", "Percentage of patients aged 18 years and older who had cataract surgery and had improvement in visual function achieved within 90 days following the cataract surgery", "Median Time to Transfer to Another Facility for Acute Coronary Intervention- Reporting Rate", "Appropriate Follow-Up Interval for Normal Colonoscopy in Average Risk Patients", "Head CT or MRI Scan Results for Acute Ischemic Stroke or Hemorrhagic Stroke Patients who Received Head CT or MRI Scan Interpretation Within 45 minutes of ED Arrival", "Colonoscopy Interval for Patients with a History of Adenomatous Polyps - Avoidance of Inappropriate Use
+", "Median Time to Pain Management for Long Bone Fracture", "Median Time from ED Arrival to Provider Contact for ED patients". 

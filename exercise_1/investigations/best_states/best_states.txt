@@ -1,0 +1,17 @@
+What states are models of high-quality care? 
+
+To answer this question, I just used my final_table that I created from Q1 and create another table, this time including the state for the top 100 hospitals. Then I tally up all the numbers of time it appears for each state. I consider them models of high-quality care for the states with the highest number of hospitals that are in my top 100 list.
+
+My last query, SELECT * FROM top_state ORDER BY hosp_count DESC LIMIT 10;, gives:
+FL	10
+TX	8
+MO	8
+IL	7
+VA	6
+LA	5
+CO	5
+CA	5
+IN	4
+PA	4
+
+From this, I think the states that are models of high-quality care are Florida, Texas, Missouri, Illinois, Virginia, Louisiana, Colorado, California, Indiana, and Pennsylvania. I think my approach makes sense because the hospitals in the top 100 list from my previous questions are considered high quality care hospitals in the states. To think of states that are models of high-quality care, I would want to consider the top tier hospitals in each state, and I think it makes sense to exclude the low tier hospitals. 

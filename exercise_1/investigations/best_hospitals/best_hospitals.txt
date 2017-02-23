@@ -1,0 +1,30 @@
+What hospitals are models of high-quality care? That is, which hospitals have the most consistently high scores for a variety of procedures.
+
+To answer this question, the approach I chose to take is to look at the “Timely and Effective Care - Hospital” and “Readmission - Hospital” csv files and only look at hospitals that have an significant amount of measures in the files, rank them on a per measure basis (taking into account if it is a “lower the better” or “higher the better” scoring system), and then adding up all the rank and to display the top 10 hospitals. 
+
+I believe this approach is more statistically correct, since just taking the average or sum of the score doesn’t reflect the quality care of the hospital. 
+
+Here, I will outline the approach I took:
+
+First, I use the percentile function to find the median number of procedures each hospitals have. From readmission csv, the median number of procedures is 11, therefore I am only taking hospitals with 10 or more procedures. Similarly, I found that the median number of procedures is 13 in the effective care csv. By filtering out the hospitals that have less than the median, I effectively cut down half the entries. Now, we have a list of hospitals that I considered to have significant data.
+
+Then, to deal with the problem where there is a “lower the better” or “higher the better” scoring system, I use the rank function to rank all of the (new list of) hospitals and their respective effective care measures I care about. I looked at 14 measures, and I created a table for each measure. For the measure that is “lower the better”, I order by ascending. For the measure that is “higher the better”, I order by descending. 
+
+Finally, I join the 14 tables together to create my ultimate table, and create a new column that is the sum of all the rows. In my final query, I just need to select the top 10 hospitals from there and order the total rank score by ascending order.  
+
+The select query I used to output the top 10 hospital is:
+
+SELECT final_table.provider_id, final_table.Total, hospitals.hospital_name FROM final_table INNER JOIN hospitals ON final_table.provider_id=hospitals.provider_id ORDER BY Total ASC LIMIT 10;
+
+170123	2355	WESLEY MEDICAL CENTER
+060034	3291	SWEDISH MEDICAL CENTER
+420085	3513	GRAND STRAND REGIONAL MEDICAL CENTER
+260006	3623	MOSAIC LIFE CARE AT ST JOSEPH
+100246	4027	LAWNWOOD REGIONAL MEDICAL CENTER & HEART INSTITUTE
+260027	4345	RESEARCH MEDICAL CENTER
+340014	4393	NOVANT HEALTH FORSYTH MEDICAL CENTER
+490107	4480	RESTON HOSPITAL CENTER
+190026	4716	RAPIDES REGIONAL MEDICAL CENTER
+520138	5018	AURORA ST LUKES MEDICAL CENTER
+
+Therefore, the top ten hospitals that are models of high quality care, according to my definition outlined earlier, are: Wesley Medical Center, Swedish Medical Cdenter, Grand Strand Regional Medical Center, Mosaic Life Care At St Joseph, Lawnwood Regional Medical Center & Heart Institute, Research Medical Center, Novant Health Forsyth medical Center, Reston Hospital Center, Rapides Regional Medical Center, and Aurora St Lukes Medical Center.
